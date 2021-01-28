@@ -1,0 +1,26 @@
+{
+  "name": "px2rem",
+  "version": "0.1.0",
+  "description": "transform px to rem",
+  "main": "./src/px2rem.js",
+  "bin": {
+    "px2rem": "./src/px2rem.js"
+  },
+  "scripts": {
+    "start": "node ./src/px2rem.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TukulHX/px2rem.git"
+  },
+  "author": "TukulHX",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TukulHX/px2rem/issues"
+  },
+  "homepage": "https://github.com/TukulHX/px2rem#readme",
+  "dependencies": {
+    "inquirer": "7.3.3"
+  }
+}

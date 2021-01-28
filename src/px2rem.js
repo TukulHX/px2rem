@@ -1,10 +1,11 @@
-// npm install inquirer
-
-// node px2rem.js <需要转换的目录或者文件路径>
+#!/usr/bin/env node
 
 const fs = require('fs')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
+const pkg = require('../package.json')
+
+const version = pkg.version
 
 // 需要修改的文件总数
 let total = 0
@@ -19,7 +20,7 @@ const readFile = (filePath, index) => {
                 let removePxStr = pxNum.replace('px', '')
                 let calcNum = Number(removePxStr / 14).toFixed(3)
                 let result = parseFloat(calcNum)
-                return result + 'rem' + operator
+                return result ? result + 'rem' + operator : result + operator
             })
             write(filePath, newData, index)
         }
@@ -43,6 +44,10 @@ const write = async (filePath, data, index) => {
  */
 const getInputArgs = (index = 0) => {
     let arguments = process.argv.splice(2)
+    if (arguments[0] === '-v') {
+        console.log('当前安装版本: ', version)
+        process.exit(0)
+    }
     if (arguments.length) {
         return arguments[index]
     }
@@ -70,6 +75,10 @@ const getAllFilesPath = async (rootPath = './') => {
     }
     loop(rootPath.endsWith('/') ? rootPath : rootPath + '/')
     total = filePaths.length
+    if (!total) {
+        console.log(chalk.blue('未扫描到css文件，请检查文件路径是否正确'))
+        process.exit(0)
+    }
     console.log(`共扫描到 ${chalk.yellow(total)} 个css文件:`)
     console.table(filePaths)
 
