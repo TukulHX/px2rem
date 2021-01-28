@@ -1,5 +1,11 @@
-# px2rem
-一个将css、less、scss文件的px单位数值转化为以rem为单位的脚本
+# px-rem-translate
 
-# 使用方法
-node px2rem.js <需要转换的文件路径，可以只输入文件夹，会自动遍历该文件夹下所有适合转化的文件>
+一个将 css、less、scss 文件的 px 单位数值转化为以 rem 为单位的脚本
+
+# 安装
+
+npm install px-rem-translate -g
+
+# 使用
+
+px2rem <需要转换的文件路径，默认为当前文件夹内>

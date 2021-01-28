@@ -1,6 +1,6 @@
 {
-  "name": "px2rem",
-  "version": "0.1.0",
+  "name": "px-rem-translate",
+  "version": "0.1.1",
   "description": "transform px to rem",
   "main": "./src/px2rem.js",
   "bin": {
